@@ -1,5 +1,7 @@
 const Note = require('../models/note.model.js');
 
+const auth_key = "Bearer aj4sdd223klMhjsd33223okPLkq";
+
 // Create and Save a new Note
 exports.create = (req, res) => {
     // Validate request
@@ -12,7 +14,7 @@ exports.create = (req, res) => {
     console.log(req.headers.authorization);
 
     // Authorization
-        if(req.headers.authorization !== "Bearer aj4sdd223klMhjsd33223okPLkq") {
+        if(req.headers.authorization !== auth_key) {
             return res.status(401).send({
                 message: "Bad authorization"
             });
@@ -73,7 +75,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
 
     // Authorization
-    if(req.headers.authorization !== "Bearer aj4sdd223klMhjsd33223okPLkq") {
+    if(req.headers.authorization !== auth_key) {
         return res.status(401).send({
             message: "Bad authorization"
         });
@@ -114,7 +116,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
 
     // Authorization
-        if(req.headers.authorization !== "Bearer aj4sdd223klMhjsd33223okPLkq") {
+        if(req.headers.authorization !== auth_key) {
         return res.status(401).send({
             message: "Bad authorization"
         });
